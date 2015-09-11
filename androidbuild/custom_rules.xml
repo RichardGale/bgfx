@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ndk build" default="-pre-build">
+	<condition property="ndk-build" value="ndk-build" else="ndk-build.cmd">
+	  <os family="unix" />
+	</condition>
+	<condition property="shaderc" value="../../../../tools/bin/darwin/shaderc" else="../../../../tools/bin/linux/shaderc">
+	  <os family="unix" />
+	</condition>
+
+	<target name="-pre-build">
+		<exec executable="${ndk-build}" failonerror="true" dir="jni">
+			<!-- arg value="NDK_DEBUG=1"/>
+			<arg value="V=1"/ -->
+		</exec>
+		<exec executable="${shaderc}" failonerror="true" dir="jni" input="../../../../examples/00-helloworld/fc*.sc">
+			<!-- arg value="NDK_DEBUG=1"/>
+			<arg value="V=1"/ -->
+		</exec>
+	</target>
+</project>

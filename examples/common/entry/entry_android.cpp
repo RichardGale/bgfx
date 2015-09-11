@@ -18,13 +18,13 @@
 #include <android/window.h>
 #include <android_native_app_glue.h>
 
-extern "C"
-{
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wunused-parameter"
-#include <android_native_app_glue.c>
-#pragma GCC diagnostic pop
-} // extern "C"
+// extern "C"
+// {
+// #pragma GCC diagnostic push
+// #pragma GCC diagnostic ignored "-Wunused-parameter"
+// #include <android_native_app_glue.c>
+// #pragma GCC diagnostic pop
+// } // extern "C"
 
 namespace entry
 {
@@ -110,7 +110,7 @@ namespace entry
 			const char* argv[1] = { "android.so" };
 			m_mte.m_argc = 1;
 			m_mte.m_argv = const_cast<char**>(argv);
-			
+
 			while (0 == m_app->destroyRequested)
 			{
 				int32_t num;
